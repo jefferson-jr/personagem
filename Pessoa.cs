@@ -22,3 +22,17 @@ public class Pessoa {
         set { cpf = value ; }
     } 
 } 
+
+public class Estudante : Pessoa {
+    private string curso;
+
+    public Estudante(string nome, int idade, string cpf, string curso): base (nome, idade, cpf){
+        curso = curso 
+    } 
+
+
+    public string Curso{
+        get { return curso;}
+        set { curso = value;}
+    } 
+}
