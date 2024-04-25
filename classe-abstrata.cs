@@ -1,14 +1,17 @@
 using System;
 
-   public abstract class Animal{
+public abstract class Animal{
 
-     public Animal(string nome,int idade) 
+    private string nome;
+    private int idade;
+    
+    public Animal(string nome,int idade) 
     {
         this.nome = nome;
         this.idade = idade;
     }
 
-     public string GetNome(){
+    public string GetNome(){
         return nome;
     }
 
@@ -20,8 +23,8 @@ using System;
         return idade;
     }
 
-    public void SetIdade(int Idade){
-        this.nivel = idade;
+    public void SetIdade(int idade){
+        this.idade = idade;
     }
       
     public abstract void EmitirSom();
@@ -31,20 +34,20 @@ using System;
 
     public void Comer()
     {
-        Console.WriteLine($"{Nome} está comendo.");
+        Console.WriteLine($"{GetNome()} está comendo.");
     }
 
     
     public void Dormir()
     {
-        Console.WriteLine($"{Nome} está dormindo.");
+        Console.WriteLine($"{GetNome()} está dormindo.");
     }
 }
 
 
 class Cachorro : Animal
 {
-     public Cachorro(string nome,int idade, ) :base(nome,idade) {
+     public Cachorro(string nome,int idade ) :base(nome,idade) {
      }
     public override void EmitirSom()
     {
@@ -61,9 +64,9 @@ class Cachorro : Animal
 
 class Gato : Animal        
 {
- public Cachorro(string nome,int idade, ) :base(nome,idade){
+    public Gato(string nome,int idade ) :base(nome,idade){
 
- }
+    }
     public override void EmitirSom()
     {
         Console.WriteLine("Miau!");
@@ -81,8 +84,8 @@ class Program
     static void Main(string[] args)
     {
         
-        Cachorro cachorro = new Cachorro("Cachorro", 3)
-        Gato gato = new Gato("Gato", 10)
+        Cachorro cachorro = new Cachorro("Cachorro", 3);
+        Gato gato = new Gato("Gato", 10);
         
         
         cachorro.EmitirSom(); 
